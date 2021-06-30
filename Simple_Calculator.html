@@ -1,0 +1,58 @@
+<html>
+<head>
+	<title>Lab 3 - Factorial</title> 
+	<script>
+		"use strict";
+        
+        // Defined the $ arrow function to get the object
+        const $ = selector => document.querySelector(selector);
+
+		function calcFactorial(myNum) { 
+            let result = 1;
+            for (let i = 1; i <= myNum; i++) {
+		      result = result * i;
+            }
+              return result;
+		  }
+        
+		function calculate() { 
+			// get the number entered into the text box myNum
+            const myNum = parseFloat($("#myNum").value);
+			// call the factorial function
+            $("#myFactorial").value = calcFactorial(myNum);
+            // calculate the square of the number
+            $("#mySquare").value = myNum * myNum;
+			// Calculate the square root of the number
+            $("#mySquareRoot").value = Math.sqrt(myNum);
+            // display those values in the proper place in the HTML 
+		}
+		window.onload = function() {
+		    document.getElementById("goCalculate").onclick = calculate; 
+			document.getElementById("myNum").focus();
+		}; 
+	</script>
+</head> 
+<body>
+	<main>
+	    <h2>Sinem Beylergil - IT 2320 - Lab 3</h2>
+		<h2>Enter a Number for Calculation</h1> 
+		<label for="myNum">My Number Is:</label>
+		<input type="text" id="myNum"><br>
+		<br/>
+		<!-- display the square here -->
+		<label for="mySquare">My Number Squared:</label> 
+		<input type="text" id="mySquare" disabled><br> 
+		<br/>
+		<!-- display the square root here -->
+		<label for="mySquareRoot">My Number Square Root:</label> 
+		<input type="text" id="mySquareRoot" disabled><br> 
+		<br/>
+		<!-- display the factorial here -->
+		<label for="">My Factorial</label> 
+		<input type="text" id="myFactorial" disabled><br> 
+		<br/>
+		<label>&nbsp;</label>
+		<input type="button" id="goCalculate" value="GO"><br> 
+	</main> 
+</body>  
+</html>
